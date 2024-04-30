@@ -22,6 +22,8 @@ html {
   color: var(--text-light)
 }
 
+/* Dark Mode */
+
 .dark {
   color: white;
   background-color: var(--bg-dark);
@@ -29,4 +31,16 @@ html {
 
 .dark body header {
   background-color: var(--dark-elements);
+}
+
+.dark body #result-search > article {
+  background-color: var(--dark-elements);
+}
+
+.dark input, .dark select {
+  background-color: var(--dark-elements);
+}
+
+.dark input::placeholder {
+  color: white;
 }
