@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import App from '../App';
-import Country from '../pages/Country';
+import Country from '../pages/CountryDetails';
 import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: '/country/:id',
+    path: '/country/:code',
     element: <Country/>,
   }
 ]);
