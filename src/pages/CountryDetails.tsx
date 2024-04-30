@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom"
 
 import ProcessCurrecy from '../helpers/ProcessCurrency';
 import ProcessLanguage from '../helpers/ProcessLanguage';
+import ProcessNativename from '../helpers/ProcessNativename';
 
 export default function CountryDetails() {
 
@@ -29,7 +30,7 @@ export default function CountryDetails() {
                         <article key={index}>
                             <ul>
                                 <li>{item.name.common}</li>
-                                <li>// item.nativename.common</li>
+                                <li>{ProcessNativename(item.name)}</li>
                                 <li>{item.population}</li>
                                 <li>{item.region}</li>
                                 <li>{item.subregion}</li>
@@ -40,7 +41,12 @@ export default function CountryDetails() {
                             </ul> 
                             <ul>
                                 { 
+                                    item.borders &&
                                     item.borders.map((border, index) => <li key={index}>{border}</li>)
+                                }
+                                {
+                                    !item.borders &&
+                                    <li>Doesn't have borders</li>
                                 }
                             </ul>
                         </article>
