@@ -44,3 +44,7 @@ html {
 .dark input::placeholder {
   color: white;
 }
+
+.dark article.card {
+  background-color: var(--dark-elements);
+}
