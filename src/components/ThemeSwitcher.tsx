@@ -23,7 +23,7 @@ export const ThemeSwitcher = () => {
             <button
                 onClick={toggleDarkMode}
             >
-                Icono
+                [-]
             </button>
             {darkMode ? 'Light Mode' : 'Dark Mode'}
         </>
