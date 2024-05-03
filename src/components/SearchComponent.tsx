@@ -1,41 +1,41 @@
 import { useEffect, useState } from "react"
 import Country from "./CountryComponent"
-import { CountryProps } from "../types"
+import { CountryProps } from '../types';
 
 export const SearchComponent = () => {
 
-    let results = [];
+    let results : CountryProps[] = [];
     const [countries, setCountries] = useState([])
-    const [search, setSearch] = useState("")
-    const [select, setSelect] = useState("")
+    const [search, setSearch] = useState<string>("")
+    const [select, setSelect] = useState<string>("")
     
     useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
         .then(data => data.json())
         .then(data => {
             setCountries(data)
-            console.log(data)
+            //console.log(data)
         })
     }, [])
 
     if(!search && !select) {
         results = countries;
     } else if (search && select) {
-        results = countries.filter( (data) =>
+        results = countries.filter( (data : CountryProps) =>
             data.name.common.toLowerCase().includes(search.toLowerCase()) && 
             data.region.toLowerCase().includes(select.toLowerCase())
         )
     } else if(search) {
-        results = countries.filter( (data) => data.name.common.toLowerCase().includes(search.toLowerCase()))
+        results = countries.filter( (data : CountryProps) => data.name.common.toLowerCase().includes(search.toLowerCase()))
     } else if(select) {
-        results = countries.filter( (data) => data.region.toLowerCase().includes(select.toLowerCase()))
+        results = countries.filter( (data : CountryProps) => data.region.toLowerCase().includes(select.toLowerCase()))
     } 
 
-    const handleSearchByCountry = e => {
+    const handleSearchByCountry = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearch(e.target.value)
     }
 
-    const handleFilterByRegion = e => {
+    const handleFilterByRegion = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSelect(e.target.value)
     }
 
@@ -53,7 +53,7 @@ export const SearchComponent = () => {
                             <input value={search} onChange={handleSearchByCountry}
                             type="search" id="search" className="block w-full p-4 ps-16 text-sm rounded-md shadow-md" placeholder="Search for a country..." />
                         </div>
-                    <label htmlFor="countries" className="sr-only">Select Filter By Region</label>
+                    <label htmlFor="region" className="sr-only">Select Filter By Region</label>
                         <select name="region" id="region" value={select} onChange={handleFilterByRegion}
                             className="block py-4 px-8 text-sm rounded-md shadow-md w-[180px]"
                         >

@@ -1,4 +1,4 @@
-export type Country = {
+export interface Country {
     code: string;
     name: string,
     population: number,
@@ -20,4 +20,12 @@ export type CountryProps = {
     population: number;
     region: string;
     capital: string;
+}
+
+export interface CountryDetail extends CountryProps {
+    subregion: string,
+    tld: Array<string>;
+    currencies: string,
+    languages: string,
+    borders: Array<string>,
 }
