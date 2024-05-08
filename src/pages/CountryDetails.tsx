@@ -6,7 +6,7 @@ import ProcessLanguage from '../helpers/ProcessLanguage';
 import ProcessNativename from '../helpers/ProcessNativename';
 import ProcessBorder from '../helpers/ProcessBorder';
 
-import { CountryDetail } from "../types";
+import { CountryDetail, Currencies, Languaje, NativeName } from "../types";
 
 export default function CountryDetails() {
 
@@ -53,7 +53,7 @@ export default function CountryDetails() {
                             <div className="grid gap-8 lg:w-1/2 lg:grid-cols-2">
                                 <h3 className="font-bold lg:col-span-2 text-2xl lg:text-4xl">{item.name.common}</h3>
                                 <ul className="flex flex-col gap-4">
-                                    <li className="font-light"><span className="font-normal">Native Name: </span>{ProcessNativename(item.name)}</li>
+                                    <li className="font-light"><span className="font-normal">Native Name: </span>{ProcessNativename(item.name as NativeName)}</li>
                                     <li className="font-light"><span className="font-normal">Population: </span>{ new Intl.NumberFormat('es-ES').format(item.population) }</li>
                                     <li className="font-light"><span className="font-normal">Region: </span>{item.region}</li>
                                     <li className="font-light"><span className="font-normal">Sub Region: </span>{item.subregion}</li>
@@ -61,8 +61,8 @@ export default function CountryDetails() {
                                 </ul>
                                 <ul className="flex flex-col gap-4">
                                     <li className="font-light"><span className="font-normal">Top Level Domain: </span>{item.tld[0]}</li>
-                                    <li className="font-light"><span className="font-normal">Currencies: </span>{ProcessCurrecy(item.currencies)}</li>
-                                    <li className="font-light"><span className="font-normal">Languages: </span>{ProcessLanguage(item.languages)}</li>
+                                    <li className="font-light"><span className="font-normal">Currencies: </span>{ProcessCurrecy(item.currencies as unknown as Currencies)}</li>
+                                    <li className="font-light"><span className="font-normal">Languages: </span>{ProcessLanguage(item.languages as unknown as Languaje)}</li>
                                 </ul> 
                                 <div className="flex flex-col gap-4 lg:col-span-2">
                                     <h3 className="font-normal">Border Countries:</h3>

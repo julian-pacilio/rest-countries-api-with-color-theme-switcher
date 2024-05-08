@@ -29,3 +29,34 @@ export interface CountryDetail extends CountryProps {
     languages: string,
     borders: Array<string>,
 }
+
+export type Error = {
+    status: number,
+    statusText: string,
+    internal: boolean,
+    data: string,
+    message: string,
+    stack: string
+}
+
+export interface NativeName {
+    common: string,
+    official: string,
+    nativeName: {
+        [key: string] :  {
+            official: string,
+            common: string
+        }
+    }
+}
+
+export interface Languaje {
+    [key: string] : string,
+}
+
+export interface Currencies {
+    [key: string] : {
+        name: string,
+        symbol: string
+    }
+}

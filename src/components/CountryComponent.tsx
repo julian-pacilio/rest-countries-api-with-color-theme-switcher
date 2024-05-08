@@ -3,7 +3,7 @@ import { Country } from "../types"
 
 type Props = Country;
 
-export default function Country ({ code, name, image, imageAlt, population, region, capital } : Props) {
+export default function CountryComponent ({ code, name, image, imageAlt, population, region, capital } : Props) {
 
     return(
         <>
