@@ -11,7 +11,7 @@ import { CountryDetail } from "../types";
 export default function CountryDetails() {
 
     const [country, setCountry] = useState([])
-    const [borders, setBorders] = useState([])
+    const [borders, setBorders] = useState<string[][]>([])
 
     const { code } = useParams();
 
