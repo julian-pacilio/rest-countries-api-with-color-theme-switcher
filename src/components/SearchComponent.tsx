@@ -34,7 +34,7 @@ export const SearchComponent = () => {
         setSearch(e.target.value)
     }
 
-    const handleFilterByRegion = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFilterByRegion = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelect(e.target.value)
     }
 
