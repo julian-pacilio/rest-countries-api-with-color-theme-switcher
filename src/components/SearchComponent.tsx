@@ -5,7 +5,7 @@ import { CountryProps } from '../types';
 export const SearchComponent = () => {
 
     let results : CountryProps[] = [];
-    const [countries, setCountries] = useState([])
+    const [countries, setCountries] = useState<CountryProps[]>([])
     const [search, setSearch] = useState<string>("")
     const [select, setSelect] = useState<string>("")
     
@@ -14,7 +14,6 @@ export const SearchComponent = () => {
         .then(data => data.json())
         .then(data => {
             setCountries(data)
-            //console.log(data)
         })
     }, [])
 
@@ -85,7 +84,7 @@ export const SearchComponent = () => {
             }
             {
                 results.length == 0 && 
-                <h2 className="sm:col-span-2">There are no results for your search</h2>
+                <h2 className="sm:col-span-2 lg:col-span-4">There are no results for your search</h2>
             }
         </section>
     </>
