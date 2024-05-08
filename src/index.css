@@ -48,3 +48,7 @@ html {
 .dark article.card {
   background-color: var(--dark-elements);
 }
+
+.dark .badge{
+  background-color: var(--dark-elements);
+}
