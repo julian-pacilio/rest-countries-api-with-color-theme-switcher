@@ -77,8 +77,7 @@ export const SearchComponent = () => {
                             population={item.population}
                             region={item.region}
                             capital={item.capital}
-                        >
-                        </Country>
+                        />
                     )
                 )
             }
