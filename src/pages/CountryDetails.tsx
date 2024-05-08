@@ -29,14 +29,23 @@ export default function CountryDetails() {
     return (
         <>
             <Link to={'/'}
-                  className="flex justify-center items-center shadow-md w-1/3 h-[40px] rounded-sm"
-            >Back</Link>
+                  className="badge flex justify-center items-center shadow-custom-shadow w-[140px] h-[40px] gap-2 rounded-md"
+            >  
+                <div>
+                    <svg className="h-[30px] mx-auto" fill="none" strokeWidth={1} stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                    </svg>
+                </div>
+                <span>
+                    Back
+                </span>
+            </Link>
                 {
                     country.map((item: CountryDetail, index: number) => (
                         <article key={index} className="my-16 flex flex-col gap-10 lg:gap-24 lg:flex-row lg:justify-center lg:items-center">
                             <picture className="block lg:w-1/2">
                                 <img
-                                    className="h-full sm:max-h-[400px] w-full object-cover"
+                                    className="h-full sm:max-h-[400px] rounded-md w-full object-cover"
                                     src={item.flags.svg}
                                     alt={item.flags.alt}
                                 />
@@ -55,7 +64,7 @@ export default function CountryDetails() {
                                     <li className="font-light"><span className="font-normal">Currencies: </span>{ProcessCurrecy(item.currencies)}</li>
                                     <li className="font-light"><span className="font-normal">Languages: </span>{ProcessLanguage(item.languages)}</li>
                                 </ul> 
-                                <div className="flex flex-col gap-4 lg:lg:col-span-2">
+                                <div className="flex flex-col gap-4 lg:col-span-2">
                                     <h3 className="font-normal">Border Countries:</h3>
                                     <ul className="flex flex-wrap gap-5">
                                         { 
@@ -63,14 +72,16 @@ export default function CountryDetails() {
                                                                                         
                                             borders.map((border, index) => (
                                                      <li key={index}
-                                                         className="shadow-md flex-[100px] py-2 px-4 text-center capitalize"
-                                                     >{border}</li>
+                                                         className="badge shadow-custom-shadow flex items-center justify-center text-center flex-[100px] py-2 px-4 capitalize rounded-md"
+                                                     >
+                                                        <Link to={`/country/${border[1]}`}>{border[0]}</Link>
+                                                    </li>
                                                  )
                                             )
                                         }
                                         {
                                             !item.borders &&
-                                            <li>Doesn't have borders</li>
+                                            <li className="badge shadow-custom-shadow flex items-center justify-center text-center flex-[100px] py-2 px-4 capitalize rounded-md">Doesn't have borders</li>
                                         }
                                     </ul>
                                 </div>
