@@ -1,16 +1,6 @@
-// export default function ProcessCurrency(currencies) {
+import { Currencies } from "../types"
 
-//     let results = []
-
-//     for (let currency in currencies) {
-//         let result = currencies[currency].name
-//         results.push(result)
-//     }
-
-//     return results.map(result => result)
-// }
-
-export default function ProcessCurrency(currencies) {
+export default function ProcessCurrency(currencies: Currencies) {
 
     const results : string[] = []
 

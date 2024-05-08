@@ -1,16 +1,6 @@
-// export default function ProcessLanguaje(languages) {
+import { Languaje } from "../types"
 
-//     let results = []
-
-//     for (let language in languages) {
-//         let result = languages[language]
-//         results.push(result)
-//     }
-
-//     return results.map(result => ( " " + result )).toString()
-// }
-
-export default function ProcessLanguaje(languages) {
+export default function ProcessLanguaje(languages : Languaje) {
 
     const results : string[] = []
 

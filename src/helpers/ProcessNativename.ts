@@ -1,4 +1,6 @@
-export default function ProcessNativeName(names) {
+import { NativeName } from '../types';
+
+export default function ProcessNativeName(names: NativeName) {
   const results: string[] = [];
 
   for (const name in names.nativeName) {
